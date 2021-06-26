@@ -1,0 +1,52 @@
+<html>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+       <div id="chart_div"></div>
+    <br/>
+    <div id="btn-group">
+
+    </div>
+
+<script>
+  google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales',{ role: 'annotation' }],
+          ['2014', 1000 ,'cu'],
+          ['2015', 1170 ,'IU'],
+
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Company Performance',
+            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+          },
+          animation:{
+        duration: 1000,
+        easing: 'out'
+      },
+          bars: 'vertical',
+          vAxis: {format: 'KUSD'},
+          height: 400,
+          width: 500,
+          hAxis: {
+
+                   // viewWindow: {
+                   //   min: [0, 0],
+                   //   max: [9,0]
+                   // }
+        },
+}
+        var chart = new google.charts.Bar(document.getElementById('chart_div'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+
+        var btns = document.getElementById('btn-group');
+
+
+      }
+  </script>
+
+</html>
